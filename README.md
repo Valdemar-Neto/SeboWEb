@@ -4,18 +4,20 @@ Repositório de exemplo para as atividades da disciplina de Engenharia de Softwa
 
 ## Índice
 
-- [Descrição](#descrição)
-- [Componentes](#componentes)  
+- [Sobre o Projeto](#sobre-o-projeto)
 - [Como clonar ou baixar](#como-clonar-ou-baixar)  
 - [Estrutura do Projeto](#estrutura-do-projeto)  
 - [Licença](#licença)  
 
-## Descrição
+## Sobre o Projeto
 
+### Título
+Título do Projeto
+
+### Descrição
 Descrição do seu projeto.
 
-## Componentes
-
+### Componentes
 - Aluno(a) 1
 - Aluno(a) 2
 - Aluno(a) 3
