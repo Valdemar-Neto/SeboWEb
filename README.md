@@ -39,7 +39,7 @@ Isso criará uma cópia local do repositório em sua máquina.
 Se você já configurou sua chave SSH no GitHub, pode clonar usando:
 
 ```bash
-git clone git@github.com:mvapedrosa/Eng-de-Software-UFRN.git
+git clone git@github.com:Valdemar-Neto/SeboWEb.git
 ```
 
 Isso criará uma cópia local do repositório em sua máquina.
@@ -47,7 +47,7 @@ Isso criará uma cópia local do repositório em sua máquina.
 ### Baixar como ZIP
 
 1. Acesse a página do repositório no GitHub:
-   [https://github.com/mvapedrosa/Eng-de-Software-UFRN](https://github.com/mvapedrosa/Eng-de-Software-UFRN)
+   [https://github.com/Valdemar-Neto/SeboWEb](https://github.com/Valdemar-Neto/SeboWEb)
 2. Clique no botão **Code** (verde).
 3. Selecione **Download ZIP**.
 4. Extraia o arquivo ZIP para o local desejado em seu computador.
@@ -58,12 +58,50 @@ Isso criará uma cópia local do repositório em sua máquina.
 > *Esta seção pode variar conforme a organização do repositório de cada grupo.*
 
 ```
-Eng-de-Software-UFRN/
-├── LICENSE
-├── README.md
-├── <diretório-x>/
-├── <diretório-y>/
-└── <diretório-z>/
+sebo-online/
+├── backend/
+│   ├── app/
+│   │   ├── main.py                 # Entry point da API
+│   │   ├── routes.py               # Rotas REST
+│   │   ├── core/                   # Camada de domínio e aplicação
+│   │   │   ├── domain/             # Entidades de negócio
+│   │   │   │   ├── sebo.py
+│   │   │   │   ├── produto.py
+│   │   │   │   └── usuario.py
+│   │   │   ├── application/        # Casos de uso (regras de aplicação)
+│   │   │   │   ├── cadastrar_produto.py
+│   │   │   │   └── listar_produtos.py
+│   │   │   └── ports/              # Interfaces (contratos) -> Hexagonal
+│   │   │       ├── i_produto_repository.py
+│   │   │       └── i_sebo_repository.py
+│   │   └── infra/                  # Implementações técnicas (DB, memória, etc.)
+│   │       └── memory/
+│   │           ├── produto_repository_memory.py
+│   │           └── sebo_repository_memory.py
+│   ├── tests/                      # Testes TDD
+│   │   ├── test_cadastrar_produto.py
+│   │   └── test_listar_produtos.py
+│   ├── requirements.txt
+│   └── Dockerfile
+│
+├── frontend/
+│   ├── src/
+│   │   ├── services/               # Comunicação com API
+│   │   │   └── produtoService.ts
+│   │   ├── ui/                     # Interface do usuário
+│   │   │   ├── components/
+│   │   │   │   └── ProdutoCard.tsx
+│   │   │   └── pages/
+│   │   │       └── SeboPage.tsx
+│   │   └── main.tsx                # Entry do React
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── Dockerfile
+│
+├── docker-compose.yml
+└── README.md
+
+
 ```
 
 - LICENSE: termos da licença do projeto (MIT).
