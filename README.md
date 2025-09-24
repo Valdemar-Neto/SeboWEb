@@ -29,7 +29,7 @@ Você pode obter este repositório de três formas:
 ### Clonar via HTTPS
 
 ```bash
-git clone https://github.com/mvapedrosa/Eng-de-Software-UFRN.git
+git clone https://github.com/Valdemar-Neto/SeboWEb.git
 ```
 
 Isso criará uma cópia local do repositório em sua máquina.
