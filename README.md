@@ -12,15 +12,15 @@ Repositório de exemplo para as atividades da disciplina de Engenharia de Softwa
 ## Sobre o Projeto
 
 ### Título
-Título do Projeto
+📚 Sebo Online – Marketplace de Sebos
 
 ### Descrição
-Descrição do seu projeto.
+O Sebo Online é uma plataforma desenvolvida para conectar leitores e sebos (livrarias de usados) em um único ambiente digital. A aplicação permite que empresários de sebos cadastrem seus estabelecimentos e publiquem seus produtos (livros, revistas, HQs, etc.), enquanto clientes podem navegar, consultar e adquirir itens de diferentes sebos de forma prática e intuitiva.
 
 ### Componentes
-- Aluno(a) 1
-- Aluno(a) 2
-- Aluno(a) 3
+- HERTZ DE SOUZA DANTAS
+- NICOLAS DANIEL DA ROCHA SILVA
+- VALDEMAR GONCALVES PEREIRA NETO
 
 ## Como clonar ou baixar
 
