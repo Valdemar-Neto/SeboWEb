@@ -106,9 +106,6 @@ sebo-online/
 
 - LICENSE: termos da licença do projeto (MIT).
 - README.md: este arquivo de apresentação.
-- X: descrição do diretório X.
-- Y: descrição do diretório Y.
-- Z: descrição do diretório Z.
 
 ## Licença
 
