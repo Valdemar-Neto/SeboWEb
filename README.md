@@ -22,6 +22,50 @@ O Sebo Online é uma plataforma desenvolvida para conectar leitores e sebos (liv
 - NICOLAS DANIEL DA ROCHA SILVA
 - VALDEMAR GONCALVES PEREIRA NETO
 
+### User Stories
+📚 User Stories – Sebo Online
+🔹 Usuário Cliente
+
+Cadastro/Login  
+1.   Como cliente, quero me cadastrar no Sebo Online para ter acesso à compra de livros e acompanhar meus pedidos.
+2.   Como cliente, quero fazer login para usar minhas credenciais em diferentes dispositivos.
+   
+Navegação e Busca
+1.   Como cliente, quero navegar pelos sebos cadastrados para descobrir novos vendedores de livros usados.
+2.   Como cliente, quero buscar livros pelo título, autor ou categoria para encontrar rapidamente o que desejo.
+   
+Produtos
+1.   Como cliente, quero visualizar os detalhes de um livro (título, autor, preço, estado de conservação) para decidir se compro ou não.
+2.   Como cliente, quero adicionar livros a uma lista de favoritos para consultar mais tarde.
+
+Compra
+1.   Como cliente, quero adicionar livros ao carrinho para comprar vários produtos de uma vez.
+2.   Como cliente, quero finalizar a compra e efetuar o pagamento para receber os livros em minha casa.
+3.   Como cliente, quero acompanhar o status do pedido para saber quando o livro será entregue.
+
+🔹 Dono do Sebo (Empresário)
+
+Cadastro/Login
+
+1.   Como dono de sebo, quero me cadastrar e criar meu perfil de sebo para oferecer meus livros na plataforma.
+2.   Como dono de sebo, quero fazer login para gerenciar meus produtos.
+
+Gestão do Sebo
+
+1.   Como dono de sebo, quero editar as informações do meu sebo (nome, descrição, endereço) para apresentar bem minha loja.
+2.   Como dono de sebo, quero visualizar relatórios de vendas para entender meu desempenho.
+
+Gestão de Produtos
+
+1.   Como dono de sebo, quero cadastrar livros com título, descrição, preço e estado de conservação para torná-los disponíveis para venda.
+2.   Como dono de sebo, quero editar informações de um livro para corrigir dados ou atualizar o preço.
+3.   Como dono de sebo, quero remover livros que já foram vendidos ou não estão mais disponíveis para manter meu catálogo atualizado.
+
+Pedidos
+
+1.   Como dono de sebo, quero visualizar os pedidos recebidos para separar os livros e enviar ao cliente.
+2.   Como dono de sebo, quero atualizar o status do pedido (em preparo, enviado, entregue) para informar o cliente sobre o andamento da compra
+   
 ## Como clonar ou baixar
 
 Você pode obter este repositório de três formas:
