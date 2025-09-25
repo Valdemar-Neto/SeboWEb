@@ -66,9 +66,9 @@ Pedidos
 1.   Como dono de sebo, quero visualizar os pedidos recebidos para separar os livros e enviar ao cliente.
 2.   Como dono de sebo, quero atualizar o status do pedido (em preparo, enviado, entregue) para informar o cliente sobre o andamento da compra
    
-## Como clonar ou baixar
 
-Você pode obter este repositório de três formas:
+
+## Você pode obter este repositório de três formas:
 
 ### Clonar via HTTPS
 
