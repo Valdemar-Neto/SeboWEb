@@ -1,11 +1,5 @@
 # 🧠 Relatório — Princípios de Projeto Aplicados ao Sebo Digital
 
-## 🎯 Contexto do Projeto
-O **Sebo Digital** é uma aplicação que permite que **diversos sebos (empresários)** cadastrem seus produtos, e **clientes** possam navegar, comprar e acompanhar pedidos.  
-O projeto foi desenvolvido com base em **DDD (Domain-Driven Design)**, **TDD (Test-Driven Development)**, **arquitetura hexagonal (Ports & Adapters)** e princípios **SOLID**, utilizando também **injeção de dependências** e **inversão de controle (IoC)** para promover modularidade e testabilidade.
-
----
-
 ## 🧩 Princípios de Projeto Utilizados
 
 ### 1. 🧱 Responsabilidade Única (SRP — *Single Responsibility Principle*)
@@ -106,36 +100,13 @@ O projeto foi desenvolvido com base em **DDD (Domain-Driven Design)**, **TDD (Te
 - **Repositórios:** abstraem a persistência de dados.
 
 
-###🧪Test-Driven Development (TDD)
+### 🧪Test-Driven Development (TDD)
 - Cada **User Story** gera testes unitários e de integração.  
 - Exemplo:
   - “Como cliente, quero comprar um produto” → teste do fluxo de compra e pagamento.  
   - “Como empresário, quero cadastrar produtos” → teste de validação e persistência.
 
-📈 **Benefício:** garante confiabilidade e previne regressões.
-
-
-## 🧠 Correlação com Diagramas UML
-
-| Tipo de Diagrama | Propósito | Princípios Associados |
-|------------------|------------|------------------------|
-| **Caso de Uso** | Mostra interações entre atores e funcionalidades. | SRP, ISP |
-| **Classe** | Representa entidades, serviços e interfaces. | SRP, OCP, LSP, DIP, LoD |
-| **Sequência** | Exibe o fluxo de chamadas entre objetos. | DIP, LoD |
-| **Arquitetura Hexagonal** | Separa domínio, aplicação e infraestrutura. | DIP, OCP, Interfaces |
-
----
-
-## 🚀 Benefícios Gerais
-- Sistema modular e de fácil manutenção.  
-- Independência entre camadas (Domínio, Aplicação e Infraestrutura).  
-- Facilidade para substituir tecnologias sem reescrever o domínio.  
-- Testes automatizados abrangendo fluxos de negócio críticos.  
-- Baixo acoplamento e alta coesão.
-
 ---
 
 ## 📘 Conclusão
 A aplicação combinada dos princípios **SOLID**, **Lei de Demeter**, **Inversão de Dependência**, **DDD**, **TDD** e **Arquitetura Hexagonal** assegura que o **Sebo Digital** seja um sistema **escalável, flexível e sustentável**.  
-Esses princípios garantem que novas funcionalidades possam ser implementadas com segurança, mantendo a clareza e a qualidade do código.
-
