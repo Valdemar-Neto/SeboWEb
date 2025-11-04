@@ -1,0 +1,454 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sebo Online API",
+    "description": "API para gerenciamento de sebos e produtos.\n\nPermite que sebos cadastrem livros, listem produtos e clientes realizem compras.",
+    "contact": {
+      "name": "Equipe Sebo Online",
+      "email": "contato@seboonline.com"
+    },
+    "license": {
+      "name": "MIT License"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/produtos/": {
+      "get": {
+        "tags": [
+          "Produtos"
+        ],
+        "summary": "Listar todos os produtos",
+        "operationId": "listar_produtos__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ProdutoResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Listar Produtos  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Produtos"
+        ],
+        "summary": "Cadastrar um novo produto",
+        "description": "Cria um novo produto no sistema do Sebo Online.\n- **nome**: nome do produto\n- **preco**: valor em reais\n- **descricao**: informações adicionais sobre o produto",
+        "operationId": "cadastrar_produtos__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProdutoCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProdutoResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuarios/": {
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listar todos os usuários cadastrados",
+        "description": "Retorna uma lista com todos os usuários cadastrados no sistema.",
+        "operationId": "listar_usuarios__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/UsuarioResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Listar Usuarios  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Cadastrar novo usuário",
+        "description": "Cadastra um novo usuário no sistema do Sebo Online.\n- **nome**: nome completo do usuário\n- **email**: endereço de e-mail válido\n- **senha**: senha de acesso (armazenar de forma segura no futuro)",
+        "operationId": "cadastrar_usuarios__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sebos/": {
+      "get": {
+        "tags": [
+          "Sebos"
+        ],
+        "summary": "Listar sebos cadastrados",
+        "description": "Retorna todos os sebos cadastrados na plataforma Sebo Online.",
+        "operationId": "listar_sebos__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SeboResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Listar Sebos  Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Sebos"
+        ],
+        "summary": "Cadastrar um novo sebo",
+        "description": "Cria um novo sebo (livraria de usados) dentro da plataforma Sebo Online.\n- **nome**: nome do sebo\n- **descricao**: breve descrição do sebo\n- **dono_id**: identificador do usuário dono do sebo",
+        "operationId": "cadastrar_sebos__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeboCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeboResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "ROOTS"
+        ],
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ProdutoCreate": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "minLength": 2,
+            "title": "Nome",
+            "example": "Harry Potter e o Prisioneiro de Azkaban"
+          },
+          "preco": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Preco",
+            "example": 99.99
+          },
+          "descricao": {
+            "type": "string",
+            "title": "Descricao",
+            "default": "",
+            "example": "Livro usado, capa dura"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "preco"
+        ],
+        "title": "ProdutoCreate",
+        "description": "Schema para criação de um produto (entrada do usuário)."
+      },
+      "ProdutoResponse": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "minLength": 2,
+            "title": "Nome",
+            "example": "Harry Potter e o Prisioneiro de Azkaban"
+          },
+          "preco": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Preco",
+            "example": 99.99
+          },
+          "descricao": {
+            "type": "string",
+            "title": "Descricao",
+            "default": "",
+            "example": "Livro usado, capa dura"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id",
+            "example": 1
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "preco",
+          "id"
+        ],
+        "title": "ProdutoResponse",
+        "description": "Schema de resposta para exibição de um produto."
+      },
+      "SeboCreate": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "minLength": 3,
+            "title": "Nome"
+          },
+          "descricao": {
+            "type": "string",
+            "title": "Descricao",
+            "default": ""
+          },
+          "dono_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Dono Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "dono_id"
+        ],
+        "title": "SeboCreate",
+        "description": "Campos base do sebo."
+      },
+      "SeboResponse": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "minLength": 3,
+            "title": "Nome"
+          },
+          "descricao": {
+            "type": "string",
+            "title": "Descricao",
+            "default": ""
+          },
+          "dono_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Dono Id"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "dono_id",
+          "id"
+        ],
+        "title": "SeboResponse",
+        "description": "Schema de resposta ao listar ou detalhar um sebo."
+      },
+      "UsuarioCreate": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "minLength": 3,
+            "title": "Nome"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "senha": {
+            "type": "string",
+            "minLength": 4,
+            "title": "Senha"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "email",
+          "senha"
+        ],
+        "title": "UsuarioCreate"
+      },
+      "UsuarioResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "nome",
+          "email"
+        ],
+        "title": "UsuarioResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
