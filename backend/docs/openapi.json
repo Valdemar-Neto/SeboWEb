@@ -210,6 +210,58 @@
         }
       }
     },
+    "/sebos/{sebo_id}/produtos": {
+      "post": {
+        "tags": [
+          "Sebos"
+        ],
+        "summary": "Cadastrar um novo produto",
+        "operationId": "adicionar_produto_sebos__sebo_id__produtos_post",
+        "parameters": [
+          {
+            "name": "sebo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Sebo Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProdutoCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProdutoResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/": {
       "get": {
         "tags": [
@@ -355,6 +407,13 @@
           "id": {
             "type": "integer",
             "title": "Id"
+          },
+          "produtos": {
+            "items": {
+              "$ref": "#/components/schemas/ProdutoResponse"
+            },
+            "type": "array",
+            "title": "Produtos"
           }
         },
         "type": "object",
