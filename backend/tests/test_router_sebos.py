@@ -41,3 +41,34 @@ def test_listar_produtos():
     produtos = response.json()
     assert isinstance(produtos, list)
     assert len(produtos) > 0
+
+
+def test_adicionar_produto_ao_sebo():
+    # Primeiro, cria o sebo
+    response_sebo = client.post("/sebos/", json={
+        "nome": "Sebo Teste",
+        "descricao": "Sebo para testes",
+        "dono_id": 1
+    })
+    sebo_id = response_sebo.json()["id"]
+
+    # Agora adiciona o produto
+    response_produto = client.post(f"/sebos/{sebo_id}/produtos", json={
+        "nome": "Livro de Teste",
+        "descricao": "Um livro para teste",
+        "preco": 25.0
+    })
+
+    assert response_produto.status_code == 200
+    data = response_produto.json()
+    assert data["nome"] == "Livro de Teste"
+    assert data["descricao"] == "Um livro para teste"
+    assert data["preco"] == 25.0
+
+def test_adicionar_produto_sebo_inexistente():
+    response = client.post("/sebos/999/produtos", json={
+        "nome": "Produto X",
+        "descricao": "Produto em sebo inexistente",
+        "preco": 10.0
+    })
+    assert response.status_code == 404
