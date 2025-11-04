@@ -10,3 +10,7 @@ class ISeboRepository(ABC):
     @abstractmethod
     def listar(self) -> Sebo:
         pass
+
+    @abstractmethod
+    def get_by_id(self) ->Sebo:
+        pass

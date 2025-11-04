@@ -1,4 +1,6 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import List
+
 
 @dataclass
 class Sebo:
@@ -6,3 +8,4 @@ class Sebo:
     nome: str
     descricao: str
     dono_id: int
+    produtos: List = field(default_factory=list)
