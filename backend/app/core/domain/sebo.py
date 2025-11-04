@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 @dataclass
-class SEBO:
+class Sebo:
     id: int
     nome: str
     descricao: str

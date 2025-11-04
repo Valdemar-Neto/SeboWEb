@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 from typing import List
-from app.core.domain.sebo import SEBO
+from app.core.domain.sebo import Sebo
 
 class ISeboRepository(ABC):
     @abstractmethod
-    def salvar(self, sebo: SEBO) -> SEBO:
+    def salvar(self, sebo: Sebo) -> Sebo:
         pass
 
     @abstractmethod
-    def listar(self) -> SEBO:
+    def listar(self) -> Sebo:
         pass
