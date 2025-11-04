@@ -14,18 +14,18 @@ class CadastrarSeboUseCase:
         self.repo = repo
 
     def execute(self, data: SeboCreate) -> SeboResponse:
-        # --- Validações ---
+        
         if not data.nome.strip():
             raise ValueError("O nome do sebo não pode estar vazio.")
         if not data.descricao.strip():
             raise ValueError("A descrição não pode estar vazia.")
 
-        # --- Verifica duplicidade ---
+        
         sebos_existentes = self.repo.listar()
         if any(s.nome.lower() == data.nome.lower() for s in sebos_existentes):
             raise ValueError("Já existe um sebo com este nome.")
 
-        # --- Cria e salva ---
+        
         sebo = Sebo(id=0, nome=data.nome, descricao=data.descricao, dono_id=data.dono_id)
         salvo = self.repo.salvar(sebo)
 

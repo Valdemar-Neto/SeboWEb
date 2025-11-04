@@ -14,7 +14,7 @@ class CadastrarUsuarioUseCase:
         self.repo = repo
 
     def execute(self, data: UsuarioCreate) -> UsuarioResponse:
-        # --- Validações ---
+        
         if not data.nome.strip():
             raise ValueError("O nome do usuário não pode estar vazio.")
         if not data.email.strip():
@@ -22,12 +22,12 @@ class CadastrarUsuarioUseCase:
         if not data.senha.strip():
             raise ValueError("A senha não pode estar vazia.")
 
-        # --- Verifica duplicidade por e-mail ---
+        
         usuarios_existentes = self.repo.listar()
         if any(u.email.lower() == data.email.lower() for u in usuarios_existentes):
             raise ValueError("Já existe um usuário cadastrado com este email.")
 
-        # --- Cria e salva ---
+        
         usuario = Usuario(id=0, nome=data.nome, email=data.email, senha=data.senha)
         salvo = self.repo.salvar(usuario)
 

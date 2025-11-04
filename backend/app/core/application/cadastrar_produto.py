@@ -16,18 +16,18 @@ class CadastrarProdutoUseCase:
         self.repo = repo
 
     def execute(self, data: ProdutoCreate) -> ProdutoResponse:
-        # --- Validações ---
+        
         if not data.nome.strip():
             raise ValueError("O nome do produto não pode estar vazio.")
         if data.preco <= 0:
             raise ValueError("O preço do produto deve ser maior que zero.")
 
-        # --- Verifica duplicidade ---
+        
         produtos_existentes = self.repo.listar()
         if any(p.nome.lower() == data.nome.lower() for p in produtos_existentes):
             raise ValueError("Já existe um produto com esse nome cadastrado.")
 
-        # --- Cria a entidade ---
+        
         produto = Produto(
             id=0,
             nome=data.nome.strip(),
@@ -37,7 +37,7 @@ class CadastrarProdutoUseCase:
 
         salvo = self.repo.salvar(produto)
 
-        # --- Retorna schema de resposta ---
+        
         return ProdutoResponse(
             id=salvo.id,
             nome=salvo.nome,

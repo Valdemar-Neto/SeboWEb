@@ -4,7 +4,7 @@ from typing import List
 
 
 class ListarSeboUseCase:
-    def init(self, repo: ISeboRepository):
+    def __init__(self, repo: ISeboRepository):
         self.repo = repo
     def execute(self) -> List[Sebo]:
         return self.repo.listar()
