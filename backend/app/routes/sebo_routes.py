@@ -1,6 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from app.core.application.cadastrar_sebo import CadastrarSeboUseCase
 from app.core.application.listar_sebos import ListarSeboUseCase
+from app.core.application.adicionar_produto import AdicionarProdutoSeboUseCase
+from app.core.schemas.produto_schema import ProdutoCreate, ProdutoResponse
 from app.infra.memory.sebo_repository_memory import SeboRepositoryMemory
 from app.core.schemas.sebo_schema import SeboCreate, SeboResponse
 
@@ -26,6 +28,17 @@ def cadastrar(sebo: SeboCreate, repo: SeboRepositoryMemory = Depends(get_repo)):
         return novo_sebo
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+@router_sebo.post("/{sebo_id}/produtos", response_model=ProdutoResponse, summary="Cadastrar um novo produto", status_code=200)
+def adicionar_produto(sebo_id: int, produto: ProdutoCreate, repo: SeboRepositoryMemory = Depends(get_repo)):
+    try:
+        use_case = AdicionarProdutoSeboUseCase(repo)
+        produto_criado = use_case.execute(sebo_id, produto.model_dump())
+        return produto_criado
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
 
 @router_sebo.get("/", response_model=list[SeboResponse], summary="Listar sebos cadastrados", status_code=200)
 def listar(repo: SeboRepositoryMemory = Depends(get_repo)):

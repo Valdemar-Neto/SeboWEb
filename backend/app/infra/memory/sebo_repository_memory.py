@@ -15,3 +15,9 @@ class SeboRepositoryMemory(ISeboRepository):
     
     def listar(self) -> List[Sebo]:
         return self._db
+    
+    def get_by_id(self, sebo_id: int):
+        for sebo in self._db:
+            if sebo.id == sebo_id:
+                return sebo
+        return None

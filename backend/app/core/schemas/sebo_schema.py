@@ -1,4 +1,6 @@
 from pydantic import BaseModel, Field
+from typing import List
+from app.core.schemas.produto_schema import ProdutoResponse
 from pydantic import ConfigDict
 
 class SeboBase(BaseModel):
@@ -16,5 +18,6 @@ class SeboCreate(SeboBase):
 class SeboResponse(SeboBase):
     """Schema de resposta ao listar ou detalhar um sebo."""
     id: int = Field(..., json_schema_extra=10)
+    produtos: List[ProdutoResponse] = Field(default_factory=list)
 
     model_config = ConfigDict(from_attributes=True)
