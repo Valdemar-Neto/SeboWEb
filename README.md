@@ -9,7 +9,8 @@ Repositório de exemplo para as atividades da disciplina de Engenharia de Softwa
 - [Estrutura do Projeto](#estrutura-do-projeto)  
 - [Licença](#licença)
 - [Principio de Projetos](https://github.com/Valdemar-Neto/SeboWEb/blob/main/principio_de_design.md)
-- [Padrões de Projetos]()
+- [Padrões de Projetos](https://github.com/Valdemar-Neto/SeboWEb/blob/main/backend/Padrao_de_projetos.md)
+
 
 ## Sobre o Projeto
 
