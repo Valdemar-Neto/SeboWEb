@@ -6,7 +6,7 @@ client = TestClient(app)
 def test_criar_produto_sucesso():
     response = client.post("/produtos/", json={
         "nome": "O Senhor dos Anéis",
-        "preco": 150.00,
+        "preco": 150,
         "descricao": "Edição de colecionador, capa dura"
     })
     assert response.status_code == 201
