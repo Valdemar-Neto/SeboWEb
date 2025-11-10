@@ -7,7 +7,8 @@ Repositório de exemplo para as atividades da disciplina de Engenharia de Softwa
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Como clonar ou baixar](#como-clonar-ou-baixar)  
 - [Estrutura do Projeto](#estrutura-do-projeto)  
-- [Licença](#licença)  
+- [Licença](#licença)
+- [Principio de Projetos](https://github.com/Valdemar-Neto/SeboWEb/blob/main/principio_de_design.md)
 
 ## Sobre o Projeto
 
