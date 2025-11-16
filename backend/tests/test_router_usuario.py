@@ -5,13 +5,13 @@ client = TestClient(app)
 
 def test_criar_sebo_sucesso():
     response = client.post("/usuarios/", json={
-        "nome": "Vitor dos Santos",
+        "nome": "Alves Gomes",
         "email": "vitorjojo@example.com",
         "senha": "batatinhafrita123"
     })
     assert response.status_code == 201
     data = response.json()
-    assert data["nome"] == "Vitor dos Santos"
+    assert data["nome"] == "Alves Gomes"
     assert data["email"] == "vitorjojo@example.com"
 
 
