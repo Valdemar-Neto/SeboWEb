@@ -1,4 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
+
+
 from fastapi import APIRouter
 from app.core.application.cadastrar_produto import CadastrarProdutoUseCase
 from app.core.application.listar_produtos import ListarProdutosUseCase
@@ -33,3 +35,11 @@ def listar(repo: ProdutoRepositoryMemory = Depends(get_repo)):
     use_case = ListarProdutosUseCase(repo)
     produtos = use_case.execute()
     return produtos
+
+@router_produto.put("/")
+def atualizar_produto(sebo_id: int):
+    return
+
+@router_produto.delete("/")
+def remover_produto(sebo_id: int):
+    return

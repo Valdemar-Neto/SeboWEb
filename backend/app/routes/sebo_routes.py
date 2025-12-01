@@ -1,4 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
+
+
 from app.core.application.cadastrar_sebo import CadastrarSeboUseCase
 from app.core.application.listar_sebos import ListarSeboUseCase
 from app.core.application.adicionar_produto import AdicionarProdutoSeboUseCase
@@ -49,3 +51,11 @@ def listar(repo: SeboRepositoryMemory = Depends(get_repo)):
     use_case = ListarSeboUseCase(repo)
     sebos = use_case.execute()
     return sebos
+
+@router_sebo.put("/")
+def atualizar_sebo(sebo_id: int):
+    return
+
+@router_sebo.delete("/")
+def remover_sebo(sebo_id: int):
+    return

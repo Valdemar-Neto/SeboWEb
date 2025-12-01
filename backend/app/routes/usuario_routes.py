@@ -36,3 +36,9 @@ def listar(repo: UsuarioRepositoryMemory = Depends(get_repo)):
     use_case = ListarUsuarioUseCase(repo)
     usuarios = use_case.execute()
     return usuarios
+
+
+@router_usuario.put("/")
+def atualizar_usuario(sebo_id: int):
+    return
+
